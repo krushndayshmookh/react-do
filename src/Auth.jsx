@@ -2,6 +2,8 @@ import { useState } from 'react'
 
 import { Button } from 'primereact/button'
 import { InputText } from 'primereact/inputtext'
+import { FloatLabel } from 'primereact/floatlabel'
+import { Card } from 'primereact/card'
 
 function Auth({ onLogin }) {
   const [username, setUsername] = useState('')
@@ -20,32 +22,37 @@ function Auth({ onLogin }) {
 
   return (
     <>
-      <div>
-        <InputText
-          type="text"
-          placeholder="Username"
-          id="usernameInput"
-          onChange={(e) => {
-            setUsername(e.target.value)
-          }}
-          value={username}
-        />
-        <InputText
-          type="password"
-          placeholder="Password"
-          id="passwordInput"
-          onChange={(e) => {
-            setPassword(e.target.value)
-          }}
-          value={password}
-        />
+      <Card>
+        <FloatLabel>
+          <InputText
+            type="text"
+            id="usernameInput"
+            onChange={(e) => {
+              setUsername(e.target.value)
+            }}
+            value={username}
+          />
+          <label htmlFor="usernameInput">Username</label>
+        </FloatLabel>
+        <FloatLabel>
+          <InputText
+            type="password"
+            placeholder="Password"
+            id="passwordInput"
+            onChange={(e) => {
+              setPassword(e.target.value)
+            }}
+            value={password}
+          />
+          <label htmlFor="passwordInput">Password</label>
+        </FloatLabel>
         <Button
           onClick={() => {
             handleLogin()
           }}>
           Login
         </Button>
-      </div>
+      </Card>
     </>
   )
 }
