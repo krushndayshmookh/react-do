@@ -1,6 +1,6 @@
-Vite
-
 React
+
+$JSX
 
 NPM
 
@@ -12,22 +12,20 @@ GET
 
 POST
 
-Authorization
+!Authorization
 
-Authentication
+!Authentication
 
-JWT
+!JWT
 
 API
 
-Integration
+!Integration
 
-Vercel
+!Utility First CSS
 
-Utility First CSS
+!TailwindCSS
 
-TailwindCSS
+!Prime React
 
-Prime React
-
-Prime Icons
+!Prime Icons
