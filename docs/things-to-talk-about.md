@@ -22,6 +22,8 @@ Integration
 
 Vercel
 
+Utility First CSS
+
 TailwindCSS
 
 Prime React
