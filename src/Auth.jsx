@@ -23,8 +23,8 @@ function Auth({ onLogin }) {
   return (
     <>
       <Card className="p-6 rounded-xl max-w-md mx-auto bg-slate-200 mt-8">
-        <div className="flex flex-col gap-4 bg-blue">
-          <div className="w-full bg-blue">
+        <div className="flex flex-col gap-4">
+          <div className="w-full">
             <FloatLabel>
               <InputText
                 type="text"

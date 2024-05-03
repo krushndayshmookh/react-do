@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Auth from './Auth.jsx'
 import Todo from './Todo.jsx'
 
-// import './App.css'
+import { Button } from 'primereact/button'
 
 function App() {
   const [isAuth, setIsAuth] = useState(false)
@@ -25,12 +25,15 @@ function App() {
       {isAuth ? (
         <>
           <p>
-            <button
+            <Button
               onClick={() => {
                 onLogout
-              }}>
+              }}
+              severity="danger"
+              outlined
+              >
               Log Out
-            </button>
+            </Button>
           </p>
           <Todo onLogout={onLogout} />
         </>

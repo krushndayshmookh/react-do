@@ -1,6 +1,11 @@
 import { useState } from 'react'
 
-// import './Todo.css'
+import { Button } from 'primereact/button'
+import { InputText } from 'primereact/inputtext'
+import { FloatLabel } from 'primereact/floatlabel'
+import { Card } from 'primereact/card'
+
+import TodoItem from './TodoItem'
 
 function Todo() {
   const [todos, setTodos] = useState([])
@@ -28,41 +33,50 @@ function Todo() {
 
   return (
     <>
-      <div>
-        <input
-          type="text"
-          placeholder="Add todo"
-          id="todoInput"
-          onChange={(e) => {
-            setInputText(e.target.value)
-          }}
-          value={inputText}
-        />
-        <button
-          onClick={() => {
-            addTodo({
-              text: inputText,
-              isDone: false,
-            })
-            setInputText('')
-          }}>
-          Add
-        </button>
-      </div>
+      <Card className="p-6 rounded-xl max-w-md mx-auto bg-slate-200 mt-8">
+        <div className="flex flex-col gap-4">
+          <div className="w-full">
+            <FloatLabel>
+              <InputText
+                type="text"
+                placeholder="Add todo"
+                id="todoInput"
+                onChange={(e) => {
+                  setInputText(e.target.value)
+                }}
+                value={inputText}
+                className="w-full"
+              />
+              <label htmlFor="todoInput" className="text-gray-500">
+                New Todo...
+              </label>
+            </FloatLabel>
+            <Button
+              className="w-full"
+              onClick={() => {
+                addTodo({
+                  text: inputText,
+                  isDone: false,
+                })
+                setInputText('')
+              }}>
+              Add
+            </Button>
 
-      <ul>
-        {todos.map((todo, index) => (
-          <li key={index}>
-            <input
-              type="checkbox"
-              checked={todo.isDone}
-              onChange={() => toggleTodo(index)}
-            />
-            {todo.text} - {todo.username}
-            <button onClick={() => removeTodo(index)}>Remove</button>
-          </li>
-        ))}
-      </ul>
+            <ul className="w-full mt-4">
+              {todos.map((todo, index) => (
+                <TodoItem
+                  key={index}
+                  todo={todo}
+                  index={index}
+                  removeTodo={removeTodo}
+                  toggleTodo={toggleTodo}
+                />
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Card>
     </>
   )
 }
