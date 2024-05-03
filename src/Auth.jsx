@@ -9,7 +9,28 @@ function Auth({ onLogin }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleLogin = () => {
+  const handleSignUp = () => {
+    fetch('https://react-do-server-production.up.railway.app/auth/sign-up', {
+      method: 'POST',
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then(response => response.json())
+      .then(json => {
+        alert('User created successfully')
+        setUsername('')
+        setPassword('')
+        console.log(json)
+        onLogin(username)
+      })
+  }
+
+  const handleSignIn = () => {
     if (username === 'muffincat' && password === 'password') {
       onLogin(username)
     } else {
@@ -29,7 +50,7 @@ function Auth({ onLogin }) {
               <InputText
                 type="text"
                 id="usernameInput"
-                onChange={(e) => {
+                onChange={e => {
                   setUsername(e.target.value)
                 }}
                 value={username}
@@ -46,7 +67,7 @@ function Auth({ onLogin }) {
                 type="password"
                 placeholder="Password"
                 id="passwordInput"
-                onChange={(e) => {
+                onChange={e => {
                   setPassword(e.target.value)
                 }}
                 value={password}
@@ -60,11 +81,22 @@ function Auth({ onLogin }) {
           <div>
             <Button
               onClick={() => {
-                handleLogin()
+                handleSignIn()
               }}
-              className="w-full">
-              Login
-            </Button>
+              className="w-full"
+              icon="pi pi-sign-in"
+              iconPos="right"
+              label="Sign In"
+            />
+            <Button
+              onClick={() => {
+                handleSignUp()
+              }}
+              className="w-full mt-4 bg-green-700"
+              label="Sign Up"
+              icon="pi pi-user-plus"
+              iconPos="right"
+            />
           </div>
         </div>
       </Card>

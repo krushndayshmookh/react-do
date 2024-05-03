@@ -12,18 +12,18 @@ function Todo() {
 
   const username = 'muffincat'
 
-  const addTodo = (todo) => {
+  const addTodo = todo => {
     todo.username = username
     setTodos([...todos, todo])
   }
 
-  const removeTodo = (index) => {
+  const removeTodo = index => {
     const newTodos = [...todos]
     newTodos.splice(index, 1)
     setTodos(newTodos)
   }
 
-  const toggleTodo = (index) => {
+  const toggleTodo = index => {
     const newTodos = [...todos]
     newTodos[index].isDone = !newTodos[index].isDone
     setTodos(newTodos)
@@ -41,7 +41,7 @@ function Todo() {
                 type="text"
                 placeholder="Add todo"
                 id="todoInput"
-                onChange={(e) => {
+                onChange={e => {
                   setInputText(e.target.value)
                 }}
                 value={inputText}
@@ -59,7 +59,8 @@ function Todo() {
                   isDone: false,
                 })
                 setInputText('')
-              }}>
+              }}
+            >
               Add
             </Button>
 

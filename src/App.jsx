@@ -8,7 +8,7 @@ import { Button } from 'primereact/button'
 function App() {
   const [isAuth, setIsAuth] = useState(false)
 
-  const onLogin = (username) => {
+  const onLogin = username => {
     if (username) {
       setIsAuth(true)
     } else {
@@ -31,7 +31,7 @@ function App() {
               }}
               severity="danger"
               outlined
-              >
+            >
               Log Out
             </Button>
           </p>

@@ -1,9 +1,7 @@
-import { useState } from 'react'
-
 import { Button } from 'primereact/button'
 import { Checkbox } from 'primereact/checkbox'
 
-import 'primeicons/primeicons.css';
+import 'primeicons/primeicons.css'
 
 function TodoItem({ todo, index, removeTodo, toggleTodo }) {
   return (
@@ -15,7 +13,8 @@ function TodoItem({ todo, index, removeTodo, toggleTodo }) {
             todo.isDone
               ? 'line-through text-xl font-semibold'
               : 'text-xl font-semibold'
-          }>
+          }
+        >
           {todo.text}
         </h3>
         <p className="text-gray-500">{`Created by: ${todo.username}`}</p>
