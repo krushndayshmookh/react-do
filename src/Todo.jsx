@@ -1,28 +1,25 @@
 import { useState } from 'react'
 
-// import './Todo.css'
-
 function Todo() {
   const [todos, setTodos] = useState([])
 
-  const username = 'muffincat'
-
   const addTodo = (todo) => {
-    todo.username = username
-    setTodos([...todos, todo])
+    //
   }
 
   const removeTodo = (index) => {
     const newTodos = [...todos]
     newTodos.splice(index, 1)
-    setTodos(newTodos)
+    //
   }
 
   const toggleTodo = (index) => {
     const newTodos = [...todos]
-    newTodos[index].isDone = !newTodos[index].isDone
+    //
     setTodos(newTodos)
   }
+
+  const fetchTodos = () => {}
 
   const [inputText, setInputText] = useState('')
 
@@ -58,7 +55,7 @@ function Todo() {
               checked={todo.isDone}
               onChange={() => toggleTodo(index)}
             />
-            {todo.text} - {todo.username}
+            {todo}
             <button onClick={() => removeTodo(index)}>Remove</button>
           </li>
         ))}
