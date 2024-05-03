@@ -3,6 +3,8 @@ import { useState } from 'react'
 import Auth from './Auth.jsx'
 import Todo from './Todo.jsx'
 
+import "primereact/resources/themes/lara-light-cyan/theme.css";
+
 // import './App.css'
 
 function App() {

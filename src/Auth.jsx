@@ -1,5 +1,8 @@
 import { useState } from 'react'
 
+import { Button } from 'primereact/button'
+import { InputText } from 'primereact/inputtext'
+
 function Auth({ onLogin }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -18,7 +21,7 @@ function Auth({ onLogin }) {
   return (
     <>
       <div>
-        <input
+        <InputText
           type="text"
           placeholder="Username"
           id="usernameInput"
@@ -27,7 +30,7 @@ function Auth({ onLogin }) {
           }}
           value={username}
         />
-        <input
+        <InputText
           type="password"
           placeholder="Password"
           id="passwordInput"
@@ -36,12 +39,12 @@ function Auth({ onLogin }) {
           }}
           value={password}
         />
-        <button
+        <Button
           onClick={() => {
             handleLogin()
           }}>
           Login
-        </button>
+        </Button>
       </div>
     </>
   )
