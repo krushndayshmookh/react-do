@@ -16,6 +16,8 @@ Authorization
 
 Authentication
 
+JWT
+
 API
 
 Integration
