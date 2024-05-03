@@ -22,36 +22,51 @@ function Auth({ onLogin }) {
 
   return (
     <>
-      <Card>
-        <FloatLabel>
-          <InputText
-            type="text"
-            id="usernameInput"
-            onChange={(e) => {
-              setUsername(e.target.value)
-            }}
-            value={username}
-          />
-          <label htmlFor="usernameInput">Username</label>
-        </FloatLabel>
-        <FloatLabel>
-          <InputText
-            type="password"
-            placeholder="Password"
-            id="passwordInput"
-            onChange={(e) => {
-              setPassword(e.target.value)
-            }}
-            value={password}
-          />
-          <label htmlFor="passwordInput">Password</label>
-        </FloatLabel>
-        <Button
-          onClick={() => {
-            handleLogin()
-          }}>
-          Login
-        </Button>
+      <Card className="p-6 rounded-xl max-w-md mx-auto bg-slate-200 mt-8">
+        <div className="flex flex-col gap-4 bg-blue">
+          <div className="w-full bg-blue">
+            <FloatLabel>
+              <InputText
+                type="text"
+                id="usernameInput"
+                onChange={(e) => {
+                  setUsername(e.target.value)
+                }}
+                value={username}
+                className="w-full"
+              />
+              <label htmlFor="usernameInput" className="text-gray-500">
+                Username
+              </label>
+            </FloatLabel>
+          </div>
+          <div className="w-full">
+            <FloatLabel>
+              <InputText
+                type="password"
+                placeholder="Password"
+                id="passwordInput"
+                onChange={(e) => {
+                  setPassword(e.target.value)
+                }}
+                value={password}
+                className="w-full"
+              />
+              <label htmlFor="passwordInput" className="text-gray-500">
+                Password
+              </label>
+            </FloatLabel>
+          </div>
+          <div>
+            <Button
+              onClick={() => {
+                handleLogin()
+              }}
+              className="w-full">
+              Login
+            </Button>
+          </div>
+        </div>
       </Card>
     </>
   )
