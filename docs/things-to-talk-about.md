@@ -16,11 +16,15 @@ Authorization
 
 Authentication
 
+JWT
+
 API
 
 Integration
 
 Vercel
+
+Utility First CSS
 
 TailwindCSS
 
